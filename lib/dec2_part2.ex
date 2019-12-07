@@ -48,8 +48,6 @@ defmodule Dec2Part2 do
   answer would be 1202.)
   """
 
-  import Dec2
-
   def brute_force do
     {:ok, contents} = File.read("lib/inputs/dec2.txt")
     program = Dec2.build_program(contents)
