@@ -27,9 +27,26 @@ defmodule Dec3Test do
   end
 
   # this is very slow, ran in 157.2s on my mbp2017 13in
+  @tag :skip
   test "user input" do
     {:ok, contents} = File.read("lib/inputs/dec3.txt")
 
     assert Dec3.manhattan_dist_of_intersection(contents) == 529
+  end
+
+  test "part 2 R75,D30,R83,U83,L12,D49,R71,U7,L72\nU62,R66,U55,R34,D71,R55,D58,R83" do
+    input = """
+    R75,D30,R83,U83,L12,D49,R71,U7,L72
+    U62,R66,U55,R34,D71,R55,D58,R83
+    """
+
+    assert Dec3Part2.manhattan_dist_of_intersection(input) == 610
+  end
+
+  @tag :skip
+  test "part 2 with user input" do
+    {:ok, contents} = File.read("lib/inputs/dec3.txt")
+
+    assert Dec3Part2.manhattan_dist_of_intersection(contents) == 20386
   end
 end
